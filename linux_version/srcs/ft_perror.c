@@ -6,14 +6,14 @@
 /*   By: atemfack <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 22:05:34 by atemfack          #+#    #+#             */
-/*   Updated: 2020/07/31 00:09:48 by atemfack         ###   ########.fr       */
+/*   Updated: 2020/08/04 20:25:53 by atemfack         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 /*
-   For all this functins if n = -42 no error message will be print out
+** For all this functins if n = -42 no error message will be print out
 */
 
 int	ft_perror_free_map(int n, t_map *map)

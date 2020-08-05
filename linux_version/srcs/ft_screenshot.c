@@ -6,7 +6,7 @@
 /*   By: atemfack <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 17:07:25 by atemfack          #+#    #+#             */
-/*   Updated: 2020/07/30 12:59:38 by atemfack         ###   ########.fr       */
+/*   Updated: 2020/08/04 20:42:58 by atemfack         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int				ft_load_pixels(t_bitmap *bitmap, void *pixel, int fd)
 
 	len = sizeof(*data) * bitmap->bi.width;
 	data = (uint32_t *)pixel;
-	xstart = bitmap->bi.height - 1;;
+	xstart = bitmap->bi.height - 1;
 	while (xstart >= 0)
 		if (write(fd, data + xstart-- * bitmap->bi.width, len) == -1)
-				return (-1);
+			return (-1);
 	return (1);
 }
 

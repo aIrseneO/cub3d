@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_render_3D_utils3.c                              :+:      :+:    :+:   */
+/*   ft_render_3d_utils3.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atemfack <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 14:31:12 by atemfack          #+#    #+#             */
-/*   Updated: 2020/07/30 22:42:00 by atemfack         ###   ########.fr       */
+/*   Updated: 2020/08/04 20:41:41 by atemfack         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-/* Sort the sprite by their distance to the camera using bubble sort
-TODO: Optimize with a faster sorting algorithm */
+/*
+** Sort the sprite by their distance to the camera using bubble sort
+** TODO: Optimize with a faster sorting algorithm
+*/
+
 static void		ft_sort_sprites(t_cub3d *cub3d, int size)
 {
 	int			i;
@@ -84,12 +87,12 @@ static void		ft_render_sprite(t_cub3d *cub3d, float ysprite, int height,
 	}
 }
 
-void		ft_render_sprites(t_cub3d *cub3d)
+void			ft_render_sprites(t_cub3d *cub3d)
 {
-	int		i;
-	int		height;
-	float	gamma;
-	float	ysprite;
+	int			i;
+	int			height;
+	float		gamma;
+	float		ysprite;
 
 	ft_sort_sprites(cub3d, cub3d->nbr_sprite_seen);
 	i = 0;

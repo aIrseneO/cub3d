@@ -6,7 +6,7 @@
 /*   By: atemfack <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 09:06:34 by atemfack          #+#    #+#             */
-/*   Updated: 2020/07/31 22:08:51 by atemfack         ###   ########.fr       */
+/*   Updated: 2020/08/04 20:01:27 by atemfack         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int		ft_get_default_texture(t_cub3d *cub3d, int texture)
 		mlx_destroy_image(cub3d->mlx_ptr, cub3d->txt[texture].ptr);
 	cub3d->txt[texture].ptr = NULL;
 	if ((cub3d->txt[texture].ptr = mlx_xpm_file_to_image(cub3d->mlx_ptr,
-			default_txt, &size[X], &size[Y])) == NULL || 
+			default_txt, &size[X], &size[Y])) == NULL ||
 			size[X] != TILE || size[Y] != TILE)
 		return (FAILED);
 	cub3d->txt[texture].data = (int *)mlx_get_data_addr(cub3d->txt
@@ -40,10 +40,10 @@ static int		ft_get_default_texture(t_cub3d *cub3d, int texture)
 	return (SUCCESS);
 }
 
-int		ft_init_texture(t_cub3d *cub3d)
+int				ft_init_texture(t_cub3d *cub3d)
 {
-	int		texture;
-	int		size[XY];
+	int			texture;
+	int			size[XY];
 
 	texture = 0;
 	while (texture < TEXTURES)

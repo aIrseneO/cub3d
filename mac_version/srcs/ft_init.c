@@ -6,7 +6,7 @@
 /*   By: atemfack <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/17 22:35:04 by atemfack          #+#    #+#             */
-/*   Updated: 2020/08/01 21:42:15 by atemfack         ###   ########.fr       */
+/*   Updated: 2020/08/04 20:00:12 by atemfack         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void		ft_set_variables_to_null(t_cub3d *cub3d)
 {
-	int		i;
+	int			i;
 
 	cub3d->ray.zbuffer = NULL;
 	cub3d->sprite = NULL;
@@ -80,7 +80,7 @@ static int		ft_init_img_and_cam(t_cub3d *cub3d)
 	return (SUCCESS);
 }
 
-int		ft_init_t_cub3d(t_cub3d *cub3d)
+int				ft_init_t_cub3d(t_cub3d *cub3d)
 {
 	ft_set_variables_to_null(cub3d);
 	cub3d->dst_ppp = (cub3d->map.r[Y] / 2.f) / tanf(FOV_2);
@@ -91,7 +91,7 @@ int		ft_init_t_cub3d(t_cub3d *cub3d)
 				cub3d->map.r[Y])) == NULL ||
 			(cub3d->sprite = (t_sprite *)malloc(sizeof(*cub3d->sprite) *
 				cub3d->map.nbr_sprites)) == NULL ||
-			(cub3d->mlx_ptr = mlx_init()) == NULL||
+			(cub3d->mlx_ptr = mlx_init()) == NULL ||
 			(cub3d->win_ptr = mlx_new_window(cub3d->mlx_ptr, cub3d->map.r[Y],
 				cub3d->map.r[X], "cub3d")) == NULL ||
 			ft_init_img_and_cam(cub3d) == FAILED ||

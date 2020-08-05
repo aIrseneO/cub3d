@@ -6,28 +6,30 @@
 /*   By: atemfack <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 11:05:11 by atemfack          #+#    #+#             */
-/*   Updated: 2020/07/28 22:13:25 by atemfack         ###   ########.fr       */
+/*   Updated: 2020/08/04 20:30:38 by atemfack         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-/* TODO: Move this to libft */
-
 /*
-   This function takes 4 arguments: the name of the image to be created, the
-   structure "bitmap" containing the informations on the image (see bmp.h), the
-   pointer "pixels" to the first pixel color to be loaded on the image and the
-   function "ft_load_pixels" that will be used to load pixels colors on the
-   image. The function "ft_load_pixels" itself takes 4 arguments: the pointer to
-   the structure "bitmap", the pointer "pixel" and the file descriptor number
-   "fd" where to write pixels colors. In order for the image to be created,
-   at least the width "bitmap.bi.width", the height "bitmap.bi.height" and the
-   number of bites per pixel "bitmap.bi.bitcount" have to be fill up in the
-   structure. It's to the user to write the pixels loading function.
+** TODO: Move this to libft
 */
 
-static int		ft_load(t_bitmap *bitmap, void *pixel, int fd,
+/*
+** This function takes 4 arguments: the name of the image to be created, the
+** structure "bitmap" containing the informations on the image (see bmp.h), the
+** pointer "pixels" to the first pixel color to be loaded on the image and the
+** function "ft_load_pixels" that will be used to load pixels colors on the
+** image. The function "ft_load_pixels" itself takes 4 arguments: the pointer to
+** the structure "bitmap", the pointer "pixel" and the file descriptor number
+** "fd" where to write pixels colors. In order for the image to be created,
+** at least the width "bitmap.bi.width", the height "bitmap.bi.height" and the
+** number of bites per pixel "bitmap.bi.bitcount" have to be fill up in the
+** structure. It's to the user to write the pixels loading function.
+*/
+
+static int	ft_load(t_bitmap *bitmap, void *pixel, int fd,
 				int (*ft_load_pixels)(t_bitmap *bitmap, void *pixel, int fd))
 {
 	if ((write(fd, bitmap, sizeof(t_bitmap)) == -1) ||
@@ -41,7 +43,7 @@ static int		ft_load(t_bitmap *bitmap, void *pixel, int fd,
 }
 
 int			ft_bmp(char *filename, t_bitmap *bitmap, void *pixel,
-			int (*ft_load_pixels)(t_bitmap *bitmap, void *pixel, int fd))
+				int (*ft_load_pixels)(t_bitmap *bitmap, void *pixel, int fd))
 {
 	int		fd;
 

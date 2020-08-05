@@ -6,17 +6,17 @@
 /*   By: atemfack <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 20:15:52 by atemfack          #+#    #+#             */
-/*   Updated: 2020/04/22 15:14:33 by atemfack         ###   ########.fr       */
+/*   Updated: 2020/08/04 19:26:56 by atemfack         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+char		*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
-	char		*new;
-	size_t		len;
+	char	*new;
+	size_t	len;
 
 	if (!s1 || !set)
 		return (NULL);

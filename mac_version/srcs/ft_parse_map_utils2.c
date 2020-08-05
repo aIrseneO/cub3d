@@ -6,7 +6,7 @@
 /*   By: atemfack <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/29 13:20:46 by atemfack          #+#    #+#             */
-/*   Updated: 2020/08/01 21:45:47 by atemfack         ###   ########.fr       */
+/*   Updated: 2020/08/04 20:24:52 by atemfack         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void		ft_print_map(t_map map)
 	{
 		j = 0;
 		while (j < map.cols)
-		ft_printf("%c", map.arr[i][j++]);
+			ft_printf("%c", map.arr[i][j++]);
 		ft_printf("\n");
 		i++;
 	}
@@ -48,10 +48,10 @@ static void		ft_print_map(t_map map)
 	map.p[Y], map.p_alpha);
 }
 
-int			ft_check_map_surroundings(t_map *map, int rows, int cols)
+int				ft_check_map_surroundings(t_map *map, int rows, int cols)
 {
-	int		i;
-	int		j;
+	int			i;
+	int			j;
 
 	i = 0;
 	while (i < rows)

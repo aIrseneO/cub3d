@@ -6,7 +6,7 @@
 /*   By: atemfack <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 18:11:00 by atemfack          #+#    #+#             */
-/*   Updated: 2020/06/08 20:32:19 by atemfack         ###   ########.fr       */
+/*   Updated: 2020/08/04 19:16:13 by atemfack         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-/* Default values for BUFFER_SIZE and FD_SIZE */
 # ifndef FD_SIZE
 #  define FD_SIZE 32
 # endif

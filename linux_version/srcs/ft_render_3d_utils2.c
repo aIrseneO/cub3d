@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_render_3D_utils2.c                              :+:      :+:    :+:   */
+/*   ft_render_3d_utils2.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atemfack <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/17 22:35:28 by atemfack          #+#    #+#             */
-/*   Updated: 2020/07/30 22:41:02 by atemfack         ###   ########.fr       */
+/*   Updated: 2020/08/04 20:47:18 by atemfack         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void			ft_render_wall(t_cub3d *cub3d, int height)
 		*(cub3d->img.data + render.line_shift++ * cub3d->img.size_line +
 			cub3d->iray) = *(cub3d->txt[texture].data + cub3d->txt[texture].
 			size_line * ((render.start[X]++ << T) / height) +
-			cub3d->ray.save[cub3d->ray.hits_vertical]);
+			cub3d->ray.a[cub3d->ray.hits_vertical]);
 	while (render.line_shift < cub3d->map.r[X])
 		*(cub3d->img.data + render.line_shift++ * cub3d->img.size_line +
 			cub3d->iray) = cub3d->map.floor_color;

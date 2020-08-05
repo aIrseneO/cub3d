@@ -6,7 +6,7 @@
 /*   By: atemfack <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 18:04:07 by atemfack          #+#    #+#             */
-/*   Updated: 2020/05/29 21:34:15 by atemfack         ###   ########.fr       */
+/*   Updated: 2020/08/04 19:12:06 by atemfack         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	ft_gnl_extract_line(int fd, char *buffer, char **line,
 		return (-1);
 	if (ft_gnl_strchr_endl(*line))
 		return (1);
-	buffer[0] = '\0'; 
+	buffer[0] = '\0';
 	while (ft_gnl_strchr_endl(buffer) == NULL)
 	{
 		if ((n = read(fd, buffer, BUFFER_SIZE)) == -1)

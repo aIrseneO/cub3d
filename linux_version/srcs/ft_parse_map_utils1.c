@@ -6,13 +6,13 @@
 /*   By: atemfack <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 23:03:05 by atemfack          #+#    #+#             */
-/*   Updated: 2020/07/31 22:13:22 by atemfack         ###   ########.fr       */
+/*   Updated: 2020/08/04 20:22:25 by atemfack         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		ft_parse_line_for_resolution(t_map *map, char *line)
+int				ft_parse_line_for_resolution(t_map *map, char *line)
 {
 	map->r[Y] = ft_atoi(line);
 	line = ft_isfx_ptrmove(line, ft_isspace, ft_isdigit);
@@ -24,9 +24,9 @@ int		ft_parse_line_for_resolution(t_map *map, char *line)
 	return (SUCCESS);
 }
 
-int		ft_parse_line_for_path(char **path, char *line)
+int				ft_parse_line_for_path(char **path, char *line)
 {
-	char	*tmp;
+	char		*tmp;
 
 	line = ft_isfx_ptrmove(line, ft_isspace, NULL);
 	tmp = line;
@@ -43,26 +43,26 @@ int		ft_parse_line_for_path(char **path, char *line)
 	return (SUCCESS);
 }
 
-int		ft_parse_line_for_ceilling_floor_color(int *color, char *line)
+int				ft_parse_ceilling_floor_color(int *color, char *line)
 {
-	int	rgb[3];
+	int			rgb[3];
 
 	line = ft_isfx_ptrmove(line, ft_isspace, NULL);
-	if ((rgb[0] = ft_atoi(line)) < 0 || rgb[0] > 255 || 
+	if ((rgb[0] = ft_atoi(line)) < 0 || rgb[0] > 255 ||
 			(rgb[0] == 0 && *line != '0'))
 		return (ft_perror(-5));
 	line = ft_isfx_ptrmove(line, ft_isdigit, ft_isspace);
 	if (*line++ != ',')
 		return (ft_perror(-5));
 	line = ft_isfx_ptrmove(line, ft_isspace, NULL);
-	if ((rgb[1] = ft_atoi(line)) < 0 || rgb[1] > 255 || 
+	if ((rgb[1] = ft_atoi(line)) < 0 || rgb[1] > 255 ||
 			(rgb[1] == 0 && *line != '0'))
 		return (ft_perror(-5));
 	line = ft_isfx_ptrmove(line, ft_isdigit, ft_isspace);
 	if (*line++ != ',')
 		return (ft_perror(-5));
 	line = ft_isfx_ptrmove(line, ft_isspace, NULL);
-	if ((rgb[2] = ft_atoi(line)) < 0 || rgb[2] > 255 || 
+	if ((rgb[2] = ft_atoi(line)) < 0 || rgb[2] > 255 ||
 			(rgb[2] == 0 && *line != '0'))
 		return (ft_perror(-5));
 	line = ft_isfx_ptrmove(line, ft_isdigit, ft_isspace);
@@ -72,10 +72,10 @@ int		ft_parse_line_for_ceilling_floor_color(int *color, char *line)
 	return (SUCCESS);
 }
 
-int             ft_check_map_elements_and_set_map_cols_and_rows(t_map *map)
+int				ft_check_map_elements_and_set_map_cols_and_rows(t_map *map)
 {
-	int		n;
-	t_list	*list;
+	int			n;
+	t_list		*list;
 
 	if (map->r[0] == -1 || map->r[1] == -1 || map->txt[NORTH] == NULL ||
 					map->txt[SOUTH] == NULL || map->txt[EAST] == NULL ||

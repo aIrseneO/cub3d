@@ -6,7 +6,7 @@
 /*   By: atemfack <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 18:11:00 by atemfack          #+#    #+#             */
-/*   Updated: 2020/06/08 20:32:42 by atemfack         ###   ########.fr       */
+/*   Updated: 2020/08/04 19:13:43 by atemfack         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-/* Default value for BUFFER_SIZE */
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 128 
+#  define BUFFER_SIZE 128
 # endif
+
 size_t		ft_gnl_strlen(char const *s);
 char		*ft_gnl_strchr_endl(char const *s);
 char		*ft_gnl_strncpy(char *dst, char const *src, int n);

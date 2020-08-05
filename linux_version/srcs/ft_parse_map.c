@@ -6,17 +6,17 @@
 /*   By: atemfack <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 22:12:49 by atemfack          #+#    #+#             */
-/*   Updated: 2020/08/01 23:32:07 by atemfack         ###   ########.fr       */
+/*   Updated: 2020/08/04 20:18:45 by atemfack         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static int	ft_initialize(int fd, t_map *map)
+static int			ft_initialize(int fd, t_map *map)
 {
-	int		n;
-	char	*line;
-	t_list	*tmp;
+	int				n;
+	char			*line;
+	t_list			*tmp;
 
 	map->r[X] = -1;
 	map->r[Y] = -1;
@@ -39,7 +39,7 @@ static int	ft_initialize(int fd, t_map *map)
 	return ((n == -1) ? ft_perror_free_map(-1, map) : SUCCESS);
 }
 
-static int	ft_parse_map_for_elements(t_map *map, char *line)
+static int			ft_parse_map_for_elements(t_map *map, char *line)
 {
 	if (*line == 'R')
 		return (ft_parse_line_for_resolution(map, ++line));
@@ -54,18 +54,16 @@ static int	ft_parse_map_for_elements(t_map *map, char *line)
 	if (*line == 'S' && ft_isspace(*(line + 1)))
 		return (ft_parse_line_for_path(&map->txt[SPRITE], ++line));
 	if (*line == 'F' && ft_isspace(*(line + 1)))
-		return (ft_parse_line_for_ceilling_floor_color
-					(&map->floor_color, ++line));
+		return (ft_parse_ceilling_floor_color(&map->floor_color, ++line));
 	if (*line == 'C' && ft_isspace(*(line + 1)))
-		return (ft_parse_line_for_ceilling_floor_color
-					(&map->ceilling_color, ++line));
+		return (ft_parse_ceilling_floor_color(&map->ceilling_color, ++line));
 	return (ft_perror(-4));
 }
 
-static int		ft_parse_line_for_map_array(int *cam_count, int i,
+static int			ft_parse_line_for_map_array(int *cam_count, int i,
 							char *line, t_map *map)
 {
-	int		j;
+	int				j;
 
 	j = 0;
 	while (line[j])
@@ -91,13 +89,13 @@ static int		ft_parse_line_for_map_array(int *cam_count, int i,
 	return (SUCCESS);
 }
 
-static int		ft_parse_map_content_to_create_array(t_map *map)
+static int			ft_parse_map_content_to_create_array(t_map *map)
 {
-	int			i;
-	int			count;
-	char		*line;
-	t_list		*list;
-	
+	int				i;
+	int				count;
+	char			*line;
+	t_list			*list;
+
 	if (!(map->arr = (char **)malloc(sizeof(*map->arr) * map->rows)))
 		return (ft_perror_free_map(-1, map));
 	i = 0;
@@ -112,7 +110,7 @@ static int		ft_parse_map_content_to_create_array(t_map *map)
 	count = 0;
 	while (list && (line = list->content))
 	{
-		if (ft_parse_line_for_map_array(&count, i++,  line, map) == -1)
+		if (ft_parse_line_for_map_array(&count, i++, line, map) == -1)
 			return (FAILED);
 		list = list->next;
 	}
@@ -120,10 +118,10 @@ static int		ft_parse_map_content_to_create_array(t_map *map)
 	return ((count == 1) ? SUCCESS : ft_perror(-9));
 }
 
-int		ft_parse_map(char *ag1, t_map *map)
+int					ft_parse_map(char *ag1, t_map *map)
 {
-	int			fd;
-	char		*s;
+	int				fd;
+	char			*s;
 
 	if ((fd = open(ag1, O_RDONLY)) == -1)
 		return (ft_perror(-1));

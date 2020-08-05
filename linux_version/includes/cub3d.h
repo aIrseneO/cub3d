@@ -6,7 +6,7 @@
 /*   By: atemfack <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 20:53:23 by atemfack          #+#    #+#             */
-/*   Updated: 2020/08/02 16:29:29 by atemfack         ###   ########.fr       */
+/*   Updated: 2020/08/04 20:48:04 by atemfack         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,16 @@
 # include <fcntl.h>
 # include <math.h>
 # include <stdio.h>
-# include <unistd.h>
 # include <stdint.h>
 # include "libft.h"
 # include "config.h"
 # include "mlx.h"
 # include "bmp.h"
 
-/* Structure for parsing */
-typedef struct	s_map		
+/*
+** Structure for parsing
+*/
+typedef struct	s_map
 {
 	int			r[XY];
 	char		*txt[TEXTURES];
@@ -39,7 +40,9 @@ typedef struct	s_map
 	uint16_t	nbr_sprites;
 }				t_map;
 
-/* Structure for image mlx */
+/*
+** Structure for image mlx
+*/
 typedef struct	s_img
 {
 	int			bipp;
@@ -49,7 +52,9 @@ typedef struct	s_img
 	int			*data;
 }				t_img;
 
-/* Structure for camera position */
+/*
+** Structure for camera position
+*/
 typedef struct	s_cam
 {
 	float		x;
@@ -57,13 +62,14 @@ typedef struct	s_cam
 	float		alpha;
 }				t_cam;
 
-/* Structure for Ray casting 
-	beta:		ray's angle that is being cast relative to the viewing angle
-	theta:		ray's angle
+/*
+** Structure for Ray casting
+** beta:	ray's angle that is being cast relative to the viewing angle
+** theta:	ray's angle
 */
 typedef struct	s_ray
 {
-	int			save[XY];
+	int			a[XY];
 	int			isfacingup;
 	int			isfacingleft;
 	int			hits_vertical;
@@ -73,7 +79,7 @@ typedef struct	s_ray
 	float		*zbuffer;
 }				t_ray;
 
-typedef struct s_sprite
+typedef struct	s_sprite
 {
 	int			x;
 	int			y;
@@ -89,10 +95,12 @@ typedef struct	s_hud
 	uint32_t	**arr;
 }				t_hud;
 
-/* Structure for cub3d
-	dst_ppp:	distance cam to projected plan
-	phi:		angle between rays
-	cst:		to calculate wall's height */
+/*
+** Structure for cub3d
+** dst_ppp:	distance cam to projected plan
+** phi:		angle between rays
+** cst:		to calculate wall's height
+*/
 typedef struct	s_cub3d
 {
 	int			iray;
@@ -112,7 +120,9 @@ typedef struct	s_cub3d
 	t_img		txt[TEXTURES];
 }				t_cub3d;
 
-/* Structure needed for some rendering */
+/*
+** Structure needed for some rendering
+*/
 typedef struct	s_render
 {
 	int			start[XY];
@@ -122,7 +132,9 @@ typedef struct	s_render
 	uint32_t	color;
 }				t_render;
 
-/* Main functions to move the camera */
+/*
+** Main functions to move the camera
+*/
 int				ft_key_press(int key, t_cub3d *cub3d);
 int				ft_key_release(int key, t_cub3d *cub3d);
 int				ft_exit_loop(t_cub3d *cub3d);
@@ -132,23 +144,31 @@ int				ft_slide_left_right(t_cub3d *cub3d, float speed);
 int				ft_rotate_counterclockwise(t_cub3d *cub3d);
 int				ft_rotate_clockwise(t_cub3d *cub3d);
 
-/* Functionc to save the first image in bmp file */
+/*
+** Functionc to save the first image in bmp file
+*/
 int				ft_screenshot(t_cub3d *cub3d);
 
-/* Functions to parse the map */
+/*
+** Functions to parse the map
+*/
 int				ft_parse_map(char *ag, t_map *map);
 int				ft_parse_line_for_resolution(t_map *map, char *line);
 int				ft_parse_line_for_path(char **path, char *line);
-int				ft_parse_line_for_ceilling_floor_color(int *color, char *line);
+int				ft_parse_ceilling_floor_color(int *color, char *line);
 int				ft_check_map_elements_and_set_map_cols_and_rows(t_map *map);
 int				ft_check_map_surroundings(t_map *map, int rows, int cols);
 
-/* Functions to initiate and allocate variables */
+/*
+** Functions to initiate and allocate variables
+*/
 int				ft_init_t_cub3d(t_cub3d *cub3d);
 int				ft_init_texture(t_cub3d *cub3d);
 void			ft_load_hud(t_cub3d *cub3d);
 
-/* Functions for rendering */
+/*
+** Functions for rendering
+*/
 void			ft_render_3d(t_cub3d *cub3d);
 void			ft_render_cam_view_using_ray_casting_method(t_cub3d *cub3d);
 void			ft_render_sprites(t_cub3d *cub3d);
@@ -157,7 +177,9 @@ void			ft_render_wall(t_cub3d *cub3d, int dist);
 int				ft_bmp(char *filename, t_bitmap *bitmap, void *pixel,
 				int (*ft_load_pixels)(t_bitmap *bitmap, void *pixel, int fd));
 
-/* Functions to print errors and free allocated memories */
+/*
+** Functions to print errors and free allocated memories
+*/
 int				ft_perror_free_map(int n, t_map *map);
 int				ft_close(int fd);
 int				ft_perror_free(int n, char *line, t_map *map);

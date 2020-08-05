@@ -6,7 +6,7 @@
 /*   By: atemfack <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/30 19:06:55 by atemfack          #+#    #+#             */
-/*   Updated: 2020/08/01 21:49:21 by atemfack         ###   ########.fr       */
+/*   Updated: 2020/08/04 20:02:30 by atemfack         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ static uint32_t		ft_color_tile(t_cub3d *cub3d, int x, int y)
 		return (HUD_SPRITES);
 }
 
-static void		ft_put_pixel(t_cub3d *cub3d, int hud[XY], uint32_t color)
+static void			ft_put_pixel(t_cub3d *cub3d, int hud[XY], uint32_t color)
 {
-	int			i;
-	int			j;
+	int				i;
+	int				j;
 
 	i = 0;
 	while (i < cub3d->hud.tile[X])
@@ -39,10 +39,10 @@ static void		ft_put_pixel(t_cub3d *cub3d, int hud[XY], uint32_t color)
 	}
 }
 
-void		ft_load_hud(t_cub3d *cub3d)
+void				ft_load_hud(t_cub3d *cub3d)
 {
-	int		start_map[XY];
-	int		start_hud[XY];
+	int				start_map[XY];
+	int				start_hud[XY];
 
 	start_map[X] = 0;
 	start_hud[X] = 0;

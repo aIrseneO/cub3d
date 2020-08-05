@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_render_3D.c                                     :+:      :+:    :+:   */
+/*   ft_render_3d.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atemfack <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/30 22:27:21 by atemfack          #+#    #+#             */
-/*   Updated: 2020/08/01 21:51:46 by atemfack         ###   ########.fr       */
+/*   Updated: 2020/08/04 20:30:05 by atemfack         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static void		ft_render_hud_cam(t_cub3d *cub3d)
 {
 	int			start[XY];
 	int			cam[XY];
-
 
 	if (!cub3d->hud.cam_size)
 		return ;
@@ -59,7 +58,7 @@ static void		ft_render_hud(t_cub3d *cub3d)
 	ft_render_hud_cam(cub3d);
 }
 
-void	ft_render_3d(t_cub3d *cub3d)
+void			ft_render_3d(t_cub3d *cub3d)
 {
 	ft_render_cam_view_using_ray_casting_method(cub3d);
 	if (cub3d->nbr_sprite_seen)
