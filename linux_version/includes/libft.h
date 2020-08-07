@@ -6,7 +6,7 @@
 /*   By: atemfack <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 16:29:47 by atemfack          #+#    #+#             */
-/*   Updated: 2020/08/04 19:03:01 by atemfack         ###   ########.fr       */
+/*   Updated: 2020/08/04 19:39:07 by atemfack         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <stdlib.h>
+# include <unistd.h>
 
 /*
 ** Structure
