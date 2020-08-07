@@ -6,7 +6,7 @@
 /*   By: atemfack <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 13:14:30 by atemfack          #+#    #+#             */
-/*   Updated: 2020/08/04 20:43:34 by atemfack         ###   ########.fr       */
+/*   Updated: 2020/08/06 18:45:39 by atemfack         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		main(int ac, char **ag)
 		return (FAILED);
 	ft_render_3d(&cub3d);
 	if (ac == 3)
-		return (ft_screenshot(&cub3d) == FAILED);
+		return (ft_screenshot(&cub3d));
 	mlx_hook(cub3d.win_ptr, P_EVENT, P_MASK, ft_key_press, &cub3d);
 	mlx_hook(cub3d.win_ptr, R_EVENT, R_MASK, ft_key_release, &cub3d);
 	mlx_hook(cub3d.win_ptr, EXT_EVENT, EXT_MASK, ft_exit_loop, &cub3d);
