@@ -1,0 +1,2 @@
+#!/bin/bash
+gcc -Wall -Wextra -Werror -fsanitize=address -L minilibx_opengl -I minilibx_opengl main.c -lmlx -framework OpenGL -framework AppKit -lz libft.a ft_parse_map.c ft_perror.c ft_parse_map_utils.c cub3d_utils1.c cub3d_utils2.c cub3d_utils3.c ft_ray_casting.c ft_ray_casting_utils.c ft_init.c ft_init_texture.c ft_render_sprites.c

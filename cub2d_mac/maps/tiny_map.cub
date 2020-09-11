@@ -1,4 +1,4 @@
-R 700 500
+R 500 500
 
 EA ./srcs/textures/Walls/Sci-fi_wall1.xpm
 NO ./srcs/textures/Walls/Sci-fi_wall5.xpm
