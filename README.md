@@ -1,24 +1,23 @@
 # cub3d
-In this project we create a dynamic 3D view of the inside of a maze using Ray-casting. This project is inspired by the worlf-famous eponymous 90's game, which was the first FPS (Fist Person Shooter) ever [Wolfenstein 3D](http://users.atw.hu/wolf3d/).
+In this project I create a dynamic 3D view of the inside of a maze using Ray-casting. This project is inspired by the worlf-famous eponymous 90's game, which was the first FPS (Fist Person Shooter) ever [Wolfenstein 3D](http://users.atw.hu/wolf3d/).
 
 ## How to use it?
-For the requirements, any Linux distribution or a Mac OS will do. At the root of the repository run the command  
-
+This project uses a tiny graphics library [MinilibX](https://harm-smits.github.io/42docs/libs/minilibx). Systems requirements are specify [here](https://github.com/42Paris/minilibx-linux).
+  
+At the root of the repository run the command
 ```bash
-make
+$ make cub3d
 ```
 If failure for any missing dependencies, install them and re-run the command. Upon success, an executable file named **cub3d** will be created. Run the command  
 
 ```bash
-./cub3d maps/map1.cub
-```
-or  
+# SYSNOPSIS:
+# cub3d map [--save]
 
-```bash
-./cub3d maps/map1.cub --save
+$ ./cub3d maps/map1.cub
 ```
-the flag ```--save``` is the only flag available, it's used to save the first rendered image of the inside of the maze in a **bmp** file
-named ```screenshot.bmp```.<br>
+
+the flag ```--save``` is the only flag available, it's used to save the first rendered image of the inside of the maze in a **bmp** file named ```screenshot.bmp```.<br>
 
 Flag omitted, a window displaying the dynamic 3D projection of the maze will open
 <div style="text-align:center"><img src="imgs/maze_view.png" alt="Maze view"></div>  
