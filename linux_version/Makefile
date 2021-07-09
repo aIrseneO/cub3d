@@ -10,6 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
+NAME		= cub3d
+
 SRCS		= srcs/ft_parse_map.c srcs/ft_perror.c srcs/ft_parse_map_utils1.c \
 			srcs/ft_parse_map_utils2.c srcs/main_utils1.c srcs/main_utils2.c \
 			srcs/ft_init.c srcs/ft_init_utils1.c srcs/ft_init_utils2.c \
@@ -21,45 +23,51 @@ OBJS		= $(SRCS:.c=.o)
 
 INCLUDE		= includes
 
-MLX			= mlx
+LIBMLX_DIR	= mlx
 
-LIBFT		= libft
+LIBFT_DIR	= libft
 
 CC			= gcc
 
-RM			= rm -f
+RM			= rm -rf
 
 CFLAGS		= -Wall -Wextra -Werror -I $(INCLUDE) 
 
-LIBS		= -lmlx -lXext -lX11 -lm -lbsd -L$(MLX) -L$(LIBFT)
+LIBS		= -lmlx -lXext -lX11 -lm -lbsd -L$(LIBMLX_DIR) -L$(LIBFT_DIR)
 
-MLX_NAME	= libmlx.a
+LIBMLX		= libmlx.a
 
-LIBFT_NAME	= libft.a
-
-NAME		= cub3d
+LIBFT		= libft.a
 
 IMAGE		= screenshot.bmp
 
 all:		$(NAME)
 
-$(NAME):	$(MLX_NAME) $(LIBFT_NAME) $(OBJS)
-			gcc $(CFLAGS) -o $(NAME) $(OBJS) $(LIBS) $(MLX)/$(MLX_NAME) \
-						$(LIBFT)/$(LIBFT_NAME)
+$(NAME):	$(LIBMLX) $(LIBFT) $(OBJS)
+			gcc $(CFLAGS) -o $(NAME) $(OBJS) $(LIBS) $(LIBMLX_DIR)/$(LIBMLX) \
+						$(LIBFT_DIR)/$(LIBFT)
 
-$(MLX_NAME):	
-			@$(MAKE) -C $(MLX)
+$(LIBFT_DIR):
+			@git clone https://github.com/airseneo/libft.git $(LIBFT_DIR)
 
-$(LIBFT_NAME):	
-			@$(MAKE) -C $(LIBFT)
+$(LIBMLX_DIR):
+			@git clone https://github.com/42Paris/minilibx-linux.git \
+				 		$(LIBMLX_DIR)
+
+$(LIBMLX):	$(LIBMLX_DIR)
+			@$(MAKE) --no-print-directory -C $(LIBMLX_DIR)
+
+$(LIBFT):	$(LIBFT_DIR)
+			@$(MAKE) --no-print-directory -C $(LIBFT_DIR)
 
 clean:
-			@$(MAKE) -C $(MLX) clean
-			@$(MAKE) -C $(LIBFT) fclean
-			$(RM) $(MLX_NAME) $(LIBFT_NAME) $(OBJS) $(IMAGE)
+			$(RM) $(OBJS) $(IMAGE)
+			@$(MAKE) --no-print-directory -C $(LIBMLX_DIR) clean
+			@$(MAKE) --no-print-directory -C $(LIBFT_DIR) fclean
+
 
 fclean:		clean
-			$(RM) $(NAME)
+			@$(RM) $(NAME) $(LIBFT_DIR) $(LIBMLX_DIR)
 
 re:			fclean $(NAME)
 
