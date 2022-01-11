@@ -7,4 +7,4 @@ RUN apt-get update && apt-get install -y build-essential git libxext-dev libbsd-
 #COPY . /cub3d
 #WORKDIR /cub3d
 
-CMD ["make", "-C", "/cub3d"]
+CMD ["make", "f", "-C", "/cub3d"]

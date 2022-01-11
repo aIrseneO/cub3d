@@ -6,7 +6,7 @@ This project uses a tiny graphics library [MinilibX](https://harm-smits.github.i
   
 At the root of the repository run the command
 ```bash
-$ make cub3d
+make cub3d
 ```
 If failure for any missing dependencies, install them and re-run the command. Upon success, an executable file named **cub3d** will be created. Run the command  
 
@@ -14,13 +14,20 @@ If failure for any missing dependencies, install them and re-run the command. Up
 # SYSNOPSIS:
 # cub3d map [--save]
 
-$ ./cub3d maps/map1.cub
+./cub3d maps/map1.cub
 ```
 
 the flag ```--save``` is the only flag available, it's used to save the first rendered image of the inside of the maze in a **bmp** file named ```screenshot.bmp```.<br>
 
 Flag omitted, a window displaying the dynamic 3D projection of the maze will open
-<div style="text-align:center"><img src="imgs/maze_view.png" alt="Maze view"></div>  
+## Run With Docker
+```bash
+docker build -t cub3d .
+docker run -v $PWD:/cub3d cub3d
+sudo chown $(id -u):$(id -g) cub3d
+```
+<div style="text-align:center"><img src="imgs/maze_view.png" alt="Maze view"></div>
+
 
 Use the keyboard as follow to move inside the maze:  
 
@@ -30,7 +37,7 @@ Use the keyboard as follow to move inside the maze:
 <kbd>d</kbd> to move right  
 <kbd>left</kbd>  to rotate left  
 <kbd>right</kbd> to rotate right  
-<kbd>esc</kbd> to cleanly close and exit the program.  
+<kbd>esc</kbd> to cleanly close and exit the program. 
 
 ## Configurations
 
