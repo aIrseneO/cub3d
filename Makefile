@@ -35,6 +35,10 @@ $(NAME):
 						@$(MAKE) -C $(VERSION_FILE)
 						@cp $(VERSION_FILE)/$(NAME) .
 
+docker:					
+						@docker build -t cub3d .
+						@docker run --rm -v $(PWD):/cub3d cub3d
+
 clean:
 						@$(MAKE) -C $(VERSION_FILE) fclean
 						$(RM) $(IMAGE)
@@ -46,4 +50,4 @@ re:						fclean $(NAME)
 
 f:						all clean
 
-.PHONY:					all clean fclean re f
+.PHONY:					all clean docker fclean re f
